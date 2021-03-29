@@ -100,7 +100,6 @@ const removeHabit = async (req, res) => {
   const timeIndex = data.timeIndex;
   const taskIndex = data.taskIndex;
   if (!phone || !date || timeIndex == null || taskIndex == null) {
-    console.log('0000000000000000000000000000000');
     res.json({
       code: 4000,
       msg: "params wrong"
@@ -115,7 +114,6 @@ const removeHabit = async (req, res) => {
     })
   }
   else {
-    console.log('---------------------');
     try {
       if (timeIndex < habitList.tasks.length && taskIndex < habitList.tasks[timeIndex].item.length) {
         habitList.tasks[timeIndex].item.splice(taskIndex, 1);
@@ -130,7 +128,7 @@ const removeHabit = async (req, res) => {
     } catch (error) {
       res.json({
         code: 4444,
-        msg: "remove fail:" + errror
+        msg: "remove fail:" + error
       })
     }
   }
